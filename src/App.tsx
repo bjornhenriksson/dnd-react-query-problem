@@ -1,6 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import WithReactQuery from "./WithReactQuery";
 import WithReactState from "./WithReactState";
