@@ -8,9 +8,9 @@ const queryClient = new QueryClient();
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <h1>With React Query:</h1>
+      <h1>With React Query ❌:</h1>
       <WithReactQuery />
-      <h1>With React useState:</h1>
+      <h1>With React useState ✅:</h1>
       <WithReactState />
     </QueryClientProvider>
   );
