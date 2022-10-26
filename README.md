@@ -13,3 +13,26 @@ npm ci
 npm start
 ```
 
+## Update
+I've made a strange hybrid solution work by setting a random state using `useState` on `dragEnd` together with the cache update. I don't recommend this solution to anyone but it gives insight into the fact that maybe `dnd-kit` relies on react state to flush it's drop animations etcs?
+```
+const { data: items } = useQuery(["items-2"], getItems, { initialData: [] });
+const [randomState, setRandomState] = useState(0); // used to tap into state flows.
+// ...
+function handleDragEnd(event: DragEndEvent) {
+  const { active, over } = event;
+
+  if (active.id !== over?.id) {
+    const oldIndex = items.indexOf(Number(active.id));
+    const newIndex = items.indexOf(Number(over?.id));
+    queryClient.setQueryData(
+      ["items-2"],
+      arrayMove(items, oldIndex, newIndex)
+    );
+    setRandomState(Math.random()); // setting a random number in the state.
+  }
+}
+```
+
+https://user-images.githubusercontent.com/5759557/198108025-73c9772c-1820-4814-a115-fb9c745c3511.mov
+
