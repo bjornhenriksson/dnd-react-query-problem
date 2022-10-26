@@ -1,4 +1,4 @@
-# Showcase of state issues with DnD and `react-query`.
+# Showcase of state issues with Drag and Drop (`dnd-kit`) and `react-query`.
 
 To get started:
 
